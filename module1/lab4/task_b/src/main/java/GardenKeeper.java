@@ -1,14 +1,14 @@
-public class Gardener implements Runnable {
-    private Garden garden;
-    private Thread thread;
+public class GardenKeeper implements Runnable {
+    private final Garden garden;
+    private final Thread thread;
 
     private int line;
 
-    Gardener(Garden _garden) {
+    GardenKeeper(Garden _garden) {
         garden = _garden;
         line = 0;
         thread = new Thread(this);
-        thread.setName("Gardener");
+        thread.setName("GardenKeeper");
         thread.start();
     }
 

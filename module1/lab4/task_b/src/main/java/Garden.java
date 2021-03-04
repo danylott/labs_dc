@@ -1,20 +1,20 @@
 public class Garden {
     private boolean lockRead;
     private boolean lockWrite;
-    private final String[][] plants;
-    private int numOfReaders;
+    private final String[][] flowers;
+    private int readersCount;
 
-    private final String badPlant = "-";
-    private final String goodPlant = "+";
+    private final String badFlower = "-";
+    private final String goodFlower = "+";
 
     Garden() {
-        numOfReaders = 0;
-        plants = new String[10][10];
+        readersCount = 0;
+        flowers = new String[10][10];
         lockWrite = false;
         lockRead = false;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                plants[i][j] = badPlant;
+                flowers[i][j] = badFlower;
             }
         }
     }
@@ -28,8 +28,8 @@ public class Garden {
     }
 
     synchronized void unlockReader(String name) {
-        numOfReaders -= 1;
-        if (numOfReaders == 0) {
+        readersCount -= 1;
+        if (readersCount == 0) {
             lockRead = false;
         }
         System.out.println("Action in Thread: " + name + " removes from readers.");
@@ -42,7 +42,7 @@ public class Garden {
 
     synchronized boolean lockReaderWriter(boolean reader, boolean writer, String name) {
         if (reader) {
-            numOfReaders += 1;
+            readersCount += 1;
             lockRead = true;
             System.out.println("Action in Thread: " + name + " adds to readers.");
             return true;
@@ -68,7 +68,7 @@ public class Garden {
         }
         System.out.println("Action in Thread: " + name + " is watering flowers.");
         for (int j = 0; j < 10; j++) {
-            plants[i][j] = "+";
+            flowers[i][j] = "+";
         }
         try {
             Thread.sleep(1000);
@@ -88,7 +88,7 @@ public class Garden {
         StringBuilder answer = new StringBuilder();
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                answer.append(plants[i][j]).append(" ");
+                answer.append(flowers[i][j]).append(" ");
             }
             answer.append("\n");
         }
@@ -107,12 +107,12 @@ public class Garden {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (plants[i][j].equals(goodPlant)) {
-            plants[i][j] = badPlant;
+        if (flowers[i][j].equals(goodFlower)) {
+            flowers[i][j] = badFlower;
             System.out.println("Action in Thread: " + name +
                     " is changing state of plant[" + String.valueOf(i) + "][" + String.valueOf(j) + "] to state -.");
-        } else if (plants[i][j].equals(badPlant)) {
-            plants[i][j] = goodPlant;
+        } else if (flowers[i][j].equals(badFlower)) {
+            flowers[i][j] = goodFlower;
             System.out.println("Action in Thread: " + name +
                     " is changing state of plant[" + String.valueOf(i) + "][" + String.valueOf(j) + "] to state +.");
         }
