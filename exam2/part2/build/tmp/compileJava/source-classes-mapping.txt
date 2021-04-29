@@ -1,0 +1,16 @@
+DTO/CityDTO.java
+ DTO.CityDTO
+Server/DBConnection.java
+ Server.DBConnection
+Server/CitizenTypeDAO.java
+ Server.CitizenTypeDAO
+DTO/CitizenTypeDTO.java
+ DTO.CitizenTypeDTO
+Server/CityDAO.java
+ Server.CityDAO
+Client/Application.java
+ Client.Application
+Server/Server.java
+ Server.Server
+Client/Client.java
+ Client.Client
