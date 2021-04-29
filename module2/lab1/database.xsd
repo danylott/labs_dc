@@ -1,0 +1,33 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="list">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="polygons" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="polygons">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="polygon" type="polygon" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="polygon">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="vertex" type="vertex" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="vertex">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="angle" type="xs:integer"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

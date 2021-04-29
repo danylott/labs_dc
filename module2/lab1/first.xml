@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<list>
+    <polygons>
+        <polygon name="first">
+            <vertex name="№1">
+                <angle>35</angle>
+            </vertex>
+            <vertex name="№2">
+                <angle>73</angle>
+            </vertex>
+        </polygon>
+        <polygon name="second">
+            <vertex name="№1">
+                <angle>123</angle>
+            </vertex>
+            <vertex name="№2">
+                <angle>12</angle>
+            </vertex>
+            <vertex name="№3">
+                <angle>230</angle>
+            </vertex>
+        </polygon>
+        <polygon name="third">
+            <vertex name="№1">
+                <angle>80</angle>
+            </vertex>
+        </polygon>
+    </polygons>
+</list>
